@@ -1,0 +1,13 @@
+{
+  "name": "<%= packageName %>",
+  "version": "1.0.0",
+  "displayName": "<%= displayName %>",
+  "description": "<%= description %>",
+  "unity": "<%= unityVersion %>",
+  "keywords": [],
+  "author": {
+    "name": "<%= author.name %>",
+    "email": "<%= author.email %>"
+  },
+  "dependencies": {}
+}
