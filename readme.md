@@ -1,3 +1,5 @@
+[![semantic-release: angular](https://img.shields.io/badge/semantic--release-angular-e10079?logo=semantic-release)](https://github.com/semantic-release/semantic-release)
+
 ## Create Unity Package
 This tool automates the process of creating a `Unity Package` compatible with `Package Manager`. Complete the form and the tool will create the new unity project, folders, and Assembly for you.
 
