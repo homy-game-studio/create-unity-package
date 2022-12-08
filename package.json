@@ -36,6 +36,7 @@
   "devDependencies": {
     "@types/fs-extra": "^9.0.13",
     "@types/inquirer": "^9.0.3",
-    "@types/node": "^18.11.11"
+    "@types/node": "^18.11.11",
+    "semantic-release": "^19.0.5"
   }
 }
