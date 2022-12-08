@@ -1,6 +1,8 @@
 ## Create Unity Package
 This tool automates the process of creating a `Unity Package` compatible with `Package Manager`. Complete the form and the tool will create the new unity project, folders, and Assembly for you.
 
+[![Open Source Midi Player - Unity HGS ToneERE](https://img.youtube.com/vi/nq8NikmkU2o/0.jpg)](https://www.youtube.com/watch?v=nq8NikmkU2o)
+
 ## Installation
 
 Just type `npx create-unity-package`, npm auto install all dependencies for you.
