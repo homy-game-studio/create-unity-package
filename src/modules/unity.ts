@@ -14,6 +14,13 @@ const getUnityHubPath = () => {
   }
 }
 
+const parseUnityPath = (basePath: string) => {
+  switch (process.platform) {
+    case "win32": return basePath;
+    default: return path.join(basePath, "/Contents/MacOS/Unity");
+  }
+}
+
 const unityHubPath = getUnityHubPath();
 
 export const getUnityInstallations = async (): Promise<UnityInstallations> => {
@@ -26,11 +33,11 @@ export const getUnityInstallations = async (): Promise<UnityInstallations> => {
   const installations: UnityInstallations = {};
 
   lines.forEach(line => {
-    const [version, path] = line
+    const [version, unityPath] = line
       .split(", installed at")
       .map(entry => entry.trim());
 
-    if (!!version || !!path) installations[version] = path;
+    if (!!version || !!path) installations[version] = parseUnityPath(unityPath);
   });
 
   if (Object.keys(installations).length == 0) throw `No unity installations found at ${unityHubPath}.`;
