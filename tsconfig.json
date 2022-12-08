@@ -1,0 +1,15 @@
+{
+  "compilerOptions": {
+    "outDir": "./bin",
+    "target": "es2020",
+    "module": "CommonJS",
+    "strict": true,
+    "sourceMap": true,
+    // Needed for CommonJS modules
+    "allowSyntheticDefaultImports": true,
+    "declaration": true,
+  },
+  "include": [
+    "./src"
+  ]
+}

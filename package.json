@@ -1,0 +1,39 @@
+{
+  "name": "create-unity-package",
+  "version": "1.0.0",
+  "description": "",
+  "main": "bin/index.js",
+  "type": "module",
+  "source": "src/index.ts",
+  "bin": {
+    "create-unity-package": "bin/index.esm.js"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "rm -rf ./bin && microbundle --target node",
+    "watch": "microbundle --watch --target node"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/homy-game-studio/create-unity-package.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/homy-game-studio/create-unity-package/issues"
+  },
+  "homepage": "https://github.com/homy-game-studio/create-unity-package#readme",
+  "dependencies": {
+    "execa": "^6.1.0",
+    "inquirer": "^8.2.5",
+    "microbundle": "^0.15.1",
+    "mustache": "^4.2.0",
+    "ora": "^6.1.2",
+    "simple-git": "^3.15.1",
+    "typescript": "^4.9.3"
+  },
+  "devDependencies": {
+    "@types/inquirer": "^9.0.3",
+    "@types/node": "^18.11.11"
+  }
+}
