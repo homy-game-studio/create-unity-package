@@ -4,8 +4,17 @@ import process from 'process';
 
 export type UnityInstallations = Record<string, string>;
 
-const programFiles = process.env.ProgramFiles || path.resolve("C:/Program Files/");
-const unityHubPath = process.env.UnityHub || path.join(programFiles, "Unity Hub", "Unity Hub.exe")
+const getUnityHubPath = () => {
+  switch (process.platform) {
+    case "win32": {
+      const programFiles = process.env.ProgramFiles || "C:/Program Files";
+      return path.resolve(programFiles, "Unity Hub/Unity Hub.exe");
+    }
+    default: return "/Applications/Unity Hub.app/Contents/MacOS/Unity Hub"
+  }
+}
+
+const unityHubPath = getUnityHubPath();
 
 export const getUnityInstallations = async (): Promise<UnityInstallations> => {
   const { stdout } = await execa(unityHubPath, "-- --headless editors -i".split(" "), { reject: false });
