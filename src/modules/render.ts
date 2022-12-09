@@ -18,5 +18,9 @@ export const render = async (data: Record<string, any>, projectPath: string) => 
   const oldRuntime = join(projectPath, "Assets/Package/Runtime", "HGS.Template.Runtime.asmdef");
   const newRuntime = join(projectPath, "Assets/Package/Runtime", `${data.namespace}.Runtime.asmdef`);
 
+  const oldGitIgnore = join(projectPath, ".gitignore.template");
+  const newGitIgnore = join(projectPath, ".gitignore");
+
   renameSync(oldRuntime, newRuntime);
+  renameSync(oldGitIgnore, newGitIgnore);
 }
