@@ -45,6 +45,13 @@ export const getUnityInstallations = async (): Promise<UnityInstallations> => {
   return installations;
 }
 
+export const parseUnityVersion = (raw: string) => {
+  const result = /^[0-9]+\.[0-9]+/gm.exec(raw);
+  if (!result || result.length === 0) throw `Failed to parse unity version ${raw}`;
+
+  return result[0];
+}
+
 export const createUnityProject = async (unityPath: string, projectPath: string) => {
   await execa(unityPath, ["-quit", "-batchmode", "-createProject", projectPath]);
 }

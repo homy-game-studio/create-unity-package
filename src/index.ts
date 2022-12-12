@@ -5,7 +5,7 @@ import { createDirectory } from "./modules/directory";
 import { createRepo as createGitRepo } from "./modules/git";
 import input from "./modules/input";
 import { render as renderTemplate } from "./modules/render";
-import { createUnityProject, getUnityInstallations, openUnityProject } from "./modules/unity";
+import { createUnityProject, getUnityInstallations, openUnityProject, parseUnityVersion } from "./modules/unity";
 
 const run = <T>(promise: Promise<T>, text: string) => {
   return oraPromise(
@@ -23,7 +23,11 @@ const main = async () => {
     const projectPath = await run(createDirectory(inputData.packageName), "Create directory");
     await run(createUnityProject(unityPath, projectPath), "Create unity project");
     await run(createGitRepo(projectPath), "Create git repo");
-    await run(renderTemplate(inputData, projectPath), "Render template");
+    const renderData = {
+      ...inputData,
+      unityVersion: parseUnityVersion(inputData.unityVersion)
+    }
+    await run(renderTemplate(renderData, projectPath), "Render template");
     await run(openUnityProject(unityPath, projectPath), "Open unity project");
   } catch (e) {
     console.error(e);
