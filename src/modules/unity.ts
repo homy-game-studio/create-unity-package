@@ -57,5 +57,9 @@ export const createUnityProject = async (unityPath: string, projectPath: string)
 }
 
 export const openUnityProject = async (unityPath: string, projectPath: string) => {
-  await execa(unityPath, ["-projectPath", projectPath], { stdio: "ignore" });
+  await execa(unityPath, ["-projectPath", projectPath], {
+    stdio: "ignore",
+    detached: true,
+    cleanup: false,
+  });
 }
