@@ -30,7 +30,6 @@
     "ora": "^6.1.2",
     "simple-git": "^3.15.1",
     "template-directory": "^2.0.0",
-    "template-file": "^6.0.1",
     "typescript": "^4.9.3"
   },
   "devDependencies": {
