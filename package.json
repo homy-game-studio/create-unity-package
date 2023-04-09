@@ -24,6 +24,7 @@
   },
   "homepage": "https://github.com/homy-game-studio/create-unity-package#readme",
   "dependencies": {
+    "@octokit/rest": "^19.0.7",
     "execa": "^6.1.0",
     "inquirer": "^8.2.5",
     "microbundle": "^0.15.1",
