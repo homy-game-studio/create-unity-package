@@ -57,9 +57,15 @@ export const createUnityProject = async (unityPath: string, projectPath: string)
 }
 
 export const openUnityProject = async (unityPath: string, projectPath: string) => {
-  await execa(unityPath, ["-projectPath", projectPath], {
-    stdio: "ignore",
+  const subprocess = execa(unityPath, ["-projectPath", projectPath], {
     detached: true,
-    cleanup: false,
+    cleanup: false, 
+    stdio: "ignore",
   });
+
+  // Waits for a short period of time before deeming the command successful
+  await new Promise((resolve) => setTimeout(resolve, 2000));
+
+  // Disassociate the Unity process from the script process
+  subprocess.unref();
 }
