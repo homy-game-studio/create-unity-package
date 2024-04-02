@@ -2,7 +2,7 @@ import { Octokit } from "@octokit/rest";
 
 export const createGitHubRepo = async (data: Record<string, any>) => {
   
-  if(data.enableGit === false) return "";
+  if(!data.enableGit) return "";
   const token = data.GITHUB_ACCESS_TOKEN;
   const repoName = data.repoName;
 
@@ -15,8 +15,8 @@ export const createGitHubRepo = async (data: Record<string, any>) => {
 
     return response.data.clone_url;
   } catch (error) {
-    console.error(`Error when create repository on GitHub: ${error}`);
-    process.exit(1);
+    console.error(`Skipped - create repository on GitHub: ${error}`);
+    return ""
   }
 };
     
