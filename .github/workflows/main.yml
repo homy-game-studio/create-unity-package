@@ -6,12 +6,16 @@ name: Build e release
 jobs:
   build:
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      issues: write
+      pull-requests: write
     steps:
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v3
         with:
-          node-version: '16.x'
-          registry-url: 'https://registry.npmjs.org'
+          node-version: "16.x"
+          registry-url: "https://registry.npmjs.org"
       - run: npm i
       - run: npm run build
       - run: npm ci
